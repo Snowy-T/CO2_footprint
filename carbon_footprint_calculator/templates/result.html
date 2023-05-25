@@ -11,9 +11,9 @@
       <p>Dein Kohlendioxid-Fußabdruck beträgt: {{ carbon_footprint }} kg CO2</p>
       <p>Vorschläge zur Reduzierung deines Fußabdrucks:</p>
       <ul>
-        <li>...</li>
-        <li>...</li>
-        <li>...</li>
+        {% for suggestion in suggestions %}
+        <li>{{ suggestion }}</li>
+        {% endfor %}
       </ul>
     </div>
   </div>

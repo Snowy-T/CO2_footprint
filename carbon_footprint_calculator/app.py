@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -9,44 +8,33 @@ def index():
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
-    # Retrieve data from the form
-    transportation = float(request.form['transportation'])
-    energy_usage = float(request.form['energy_usage'])
-    consumption = float(request.form['consumption'])
+    # Retrieve user input from the form
+    transportation = request.form['transportation']
+    energy = request.form['energy']
+    consumption = request.form['consumption']
 
-    # Calculate carbon footprint based on the input
-    carbon_footprint = calculate_carbon_footprint(transportation, energy_usage, consumption)
+    # Conversion factors for carbon footprint calculation (example values)
+    transportation_factor = 0.2  # CO2 emissions per km traveled
+    energy_factor = 0.5  # CO2 emissions per kWh consumed
+    consumption_factor = 0.1  # CO2 emissions per unit of consumption
 
-    # Provide suggestions based on the carbon footprint
-    suggestions = generate_suggestions(carbon_footprint)
+    # Calculate carbon footprint based on user input
+    transportation_emissions = float(transportation) * transportation_factor
+    energy_emissions = float(energy) * energy_factor
+    consumption_emissions = float(consumption) * consumption_factor
 
-    # Render the result template with the calculated footprint and suggestions
-    return render_template('result.html', carbon_footprint=carbon_footprint, suggestions=suggestions)
+    total_emissions = transportation_emissions + energy_emissions + consumption_emissions
 
-def calculate_carbon_footprint(transportation, energy_usage, consumption):
-    # Your calculation logic goes here
-    # Calculate the carbon footprint based on the provided data
-    # You can use formulas and factors specific to each category
+    # Generate example suggestions
+    suggestions = [
+        "Verwende öffentliche Verkehrsmittel oder Fahrrad statt Auto zu fahren.",
+        "Nutze energieeffiziente Geräte und schalte sie bei Nichtgebrauch aus.",
+        "Reduziere den Fleischkonsum und wähle regionale, saisonale Produkte.",
+        "Pflanze Bäume oder unterstütze Aufforstungsprojekte."
+    ]
 
-    # Sample calculation:
-    total_carbon_footprint = transportation + energy_usage + consumption
-
-    return total_carbon_footprint
-
-def generate_suggestions(carbon_footprint):
-    # Your suggestion generation logic goes here
-    # Based on the carbon footprint, generate suggestions for reducing it
-    # These can include lifestyle changes, energy-saving tips, etc.
-
-    # Sample suggestions:
-    suggestions = []
-    if carbon_footprint > 50:
-        suggestions.append("Consider carpooling or using public transportation.")
-    if carbon_footprint > 100:
-        suggestions.append("Switch to renewable energy sources.")
-    # Add more suggestions based on specific thresholds or calculations
-
-    return suggestions
+    # Render the result template with the calculated carbon footprint and suggestions
+    return render_template('result.html', carbon_footprint=total_emissions, suggestions=suggestions)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
