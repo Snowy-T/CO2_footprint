@@ -1,0 +1,149 @@
+body {
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #151515;
+    color: #ffffff;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    background-image: url(landscape.jpg);
+    background-size: 220%;
+    animation: motion 15s ease 1s infinite;
+
+}
+
+h1{
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+
+
+
+@keyframes motion {
+
+    0% {
+        background-position: 0% 0%;
+    }
+    20%{
+        background-position: 35% 40%;
+    }
+
+
+
+
+    20.0000000000000000001%{
+        background-position: 35% 40%;
+    }
+    40%{
+        background-position: 100% 0%;
+    }
+
+
+
+    40.0000000000000000001%{
+        background-position: 100% 100%;
+    }
+    60%{
+        background-position: 0% 20%;
+    }
+
+
+
+    60.0000000000000000001%{
+
+        background-position: 50% 31%;
+        
+    }
+    80%{
+        background-position: 15% 75%;
+    }
+    80.0000000000000000001%{
+        
+    }
+
+
+    100% {
+        background-position: 0% 0%;
+    }
+
+}
+
+
+.container {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    gap: 20px;
+    backdrop-filter: blur(7px) brightness(0.55);
+    border-radius: 20px;
+    padding: 60px 60px;
+}
+
+
+label {
+    display: block;
+    margin: 10px 0px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+button {
+
+    width: 200px;
+    height: 35px;
+    padding: 0;
+    margin: 0;
+    border: solid #18db18 2px;
+    background-color: #25252565;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+button:hover {
+
+
+
+}
+input::placeholder{
+    color: #bbbbbb;
+}
+
+input {
+    color: #ffffff;
+    border-radius: 10px;
+    border: solid 2px #18db18;
+    background-color: #25252565;
+    width: 390px;
+    height: 35px;
+    outline: none;
+    padding: 0 5px;
+    transition: all .5s ease;
+
+}
+
+input:focus {
+
+
+}
+
+.foot-image {
+    width: 80px;
+
+}
