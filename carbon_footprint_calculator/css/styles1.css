@@ -10,11 +10,19 @@ body {
     justify-content: center;
     align-items: center;
     gap: 20px;
-
+    background-repeat: no-repeat;
     background-image: url(landscape.jpg);
     background-size: 220%;
-    animation: motion 15s ease 1s infinite;
+    animation: motion 50s ease infinite;
 
+
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 h1{
@@ -36,7 +44,6 @@ h1{
 
 
 
-
     20.0000000000000000001%{
         background-position: 35% 40%;
     }
@@ -45,14 +52,12 @@ h1{
     }
 
 
-
     40.0000000000000000001%{
         background-position: 100% 100%;
     }
     60%{
         background-position: 0% 20%;
     }
-
 
 
     60.0000000000000000001%{
@@ -117,6 +122,9 @@ button {
 }
 
 button:hover {
+    background-color: #18db1888;
+    color: #000000;
+    transition: all 1s ease;
 
 
 
@@ -139,6 +147,9 @@ input {
 }
 
 input:focus {
+    background-color: #171717cd;
+    color: #fffcfc;
+    transition: all .5s ease;
 
 
 }

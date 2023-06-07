@@ -4,24 +4,50 @@
   <title>Kohlendioxid-Fußabdruck Rechner</title>
   <link rel="stylesheet" type="text/css" href="css/styles1.css">
 </head>
-<body> 
-
-
-
+<body>
   <div class="container">
     <h1 class="title">Kohlendioxid-Fußabdruck Rechner</h1>
-    <form>
+    <form onsubmit="event.preventDefault(); calculateCarbonFootprint();">
       <div class="form-group">
-        <input type="text" name="transportation" id="transportation" required placeholder="Transport (in kg CO2)">
+        <input type="number" step="0.01" name="electricity-usage" id="electricity-usage" required placeholder="Stromverbrauch (in kWh)">
       </div>
 
       <div class="form-group">
-        <input type="text" name="energy" id="energy" required placeholder="Energieverbrauch (in kg CO2)">
+        <input type="number" step="0.01" name="electricity-carbon-intensity" id="electricity-carbon-intensity" required placeholder="Strom-CO2-Intensität (in kgCO2e/kWh)">
       </div>
 
       <div class="form-group">
-        <input type="text" name="consumption" id="consumption" required placeholder="Konsum (in kg CO2)">
+        <input type="number" step="0.01" name="car-mileage" id="car-mileage" required placeholder="Fahrleistung (in Meilen)">
       </div>
+
+      <div class="form-group">
+        <input type="number" step="0.01" name="car-efficiency" id="car-efficiency" required placeholder="Kraftstoffeffizienz (in MPG)">
+      </div>
+
+      <div class="form-group">
+        <input type="number" step="0.01" name="car-fuel-emissions" id="car-fuel-emissions" required placeholder="Kraftstoff-CO2-Emissionen (in kgCO2e/gallon)">
+      </div>
+
+      <div class="form-group">
+        <input type="number" step="0.01" name="meat-emissions" id="meat-emissions" required placeholder="Fleisch-CO2-Emissionen (in kgCO2e/kg)">
+      </div>
+
+      <div class="form-group">
+        <input type="number" step="0.01" name="dairy-emissions" id="dairy-emissions" required placeholder="Milchprodukte-CO2-Emissionen (in kgCO2e/kg)">
+      </div>
+
+      <div class="form-group">
+        <input type="number" step="0.01" name="meat-consumption" id="meat-consumption" required placeholder="Fleischkonsum (in kg)">
+      </div>
+
+      <div class="form-group">
+        <input type="number" step="0.01" name="dairy-consumption" id="dairy-consumption" required placeholder="Milchprodukte-Konsum (in kg)">
+      </div>
+
+      <div class="form-group">
+        <input type="number" step="0.01" name="waste-emissions" id="waste-emissions" required placeholder="Abfall-CO2-Emissionen (in kgCO2e/year)">
+      </div>
+
       <button type="submit" class="calculate-btn">Berechnen</button>
     </form>
 
@@ -30,11 +56,6 @@
     </div>
   </div>
 
-  
-
-
-
-
-
+  <script src="js/script.js"></script>
 </body>
 </html>
