@@ -10,14 +10,14 @@ function calculateCarbonFootprint() {
   var dairyConsumption = parseFloat(document.getElementById("dairy-consumption").value);
   var wasteEmissions = parseFloat(document.getElementById("waste-emissions").value);
 
-  // Perform the carbon footprint calculation
+  // PBerrechnung des CO2-Fußabdrucks
   var electricityCarbonFootprint = electricityUsage * electricityCarbonIntensity;
   var carCarbonFootprint = (carMileage / carEfficiency) * carFuelEmissions;
   var meatCarbonFootprint = meatEmissions * meatConsumption;
   var dairyCarbonFootprint = dairyEmissions * dairyConsumption;
   var totalCarbonFootprint = electricityCarbonFootprint + carCarbonFootprint + meatCarbonFootprint + dairyCarbonFootprint + wasteEmissions;
 
-  // Display the result on the result.html page
+  // Speichern des CO2-Fußabdrucks in localStorage
   localStorage.setItem("carbonFootprint", totalCarbonFootprint);
   window.location.href = "result.html";
 }
@@ -29,17 +29,22 @@ function displayResult() {
 
   var suggestionsList = document.getElementById("suggestions-list");
   var suggestions = [
-    "Reduce energy consumption by turning off lights and electronics when not in use.",
-    "Use public transportation, carpool, or choose fuel-efficient vehicles.",
-    "Opt for plant-based meals or reduce meat and dairy consumption.",
-    "Recycle and properly dispose of waste to minimize landfill emissions.",
-    "Plant trees or support reforestation initiatives to offset carbon emissions."
+    "Reduziere den Energieverbrauch, indem du Lichter und Elektronik ausschaltest, wenn sie nicht verwendet werden.",
+    "Benutze öffentliche Verkehrsmittel, Fahrgemeinschaften oder wähle energieeffiziente Fahrzeuge.",
+    "Wähle pflanzliche Mahlzeiten oder reduziere den Verzehr von Fleisch und Milchprodukten.",
+    "Recycle und entsorge Abfälle ordnungsgemäß, um Deponieemissionen zu minimieren.",
+    "Pflanze Bäume oder unterstütze Aufforstungsprojekte, um Kohlenstoffemissionen auszugleichen.",
+    "Vermeide den übermäßigen Gebrauch von Einwegplastik und verwende stattdessen wiederverwendbare Alternativen.",
+    "Reduziere den Wasserverbrauch, indem du Wasserhähne abdrehst und Wasserressourcen schützt.",
+    "Fördere erneuerbare Energien, indem du auf Solar- oder Windenergie umsteigst.",
+    "Unterstütze lokale Landwirtschaft und kaufe saisonale Produkte, um Transportemissionen zu reduzieren.",
+    "Beteilige dich an Umweltschutzinitiativen und teile dein Wissen über nachhaltiges Handeln mit anderen."
   ];
 
-  // Generate three random suggestions from the array
+  // NImm 3 zufällige Vorschläge aus der Liste
   var randomSuggestions = getRandomElements(suggestions, 3);
 
-  // Display the random suggestions on the page
+  // Füge die Vorschläge der Liste hinzu
   randomSuggestions.forEach(function (suggestion) {
     var li = document.createElement("li");
     li.textContent = suggestion;
