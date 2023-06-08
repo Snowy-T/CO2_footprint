@@ -1,17 +1,36 @@
 function calculateCarbonFootprint() {
-  var electricityUsage = parseFloat(document.getElementById("electricity-usage").value);
-  var electricityCarbonIntensity = parseFloat(document.getElementById("electricity-carbon-intensity").value);
+  var electricityUsage = parseFloat(
+    document.getElementById("electricity-usage").value
+  );
+  var electricityCarbonIntensity = parseFloat(
+    document.getElementById("electricity-carbon-intensity").value
+  );
   var carMileage = parseFloat(document.getElementById("car-mileage").value);
-  var carEfficiency = parseFloat(document.getElementById("car-efficiency").value);
-  var carFuelEmissions = parseFloat(document.getElementById("car-fuel-emissions").value);
-  var meatEmissions = parseFloat(document.getElementById("meat-emissions").value);
-  var dairyEmissions = parseFloat(document.getElementById("dairy-emissions").value);
-  var meatConsumption = parseFloat(document.getElementById("meat-consumption").value);
-  var dairyConsumption = parseFloat(document.getElementById("dairy-consumption").value);
-  var wasteEmissions = parseFloat(document.getElementById("waste-emissions").value);
+  var carEfficiency = parseFloat(
+    document.getElementById("car-efficiency").value
+  );
+  var carFuelEmissions = parseFloat(
+    document.getElementById("car-fuel-emissions").value
+  );
+  var meatEmissions = parseFloat(
+    document.getElementById("meat-emissions").value
+  );
+  var dairyEmissions = parseFloat(
+    document.getElementById("dairy-emissions").value
+  );
+  var meatConsumption = parseFloat(
+    document.getElementById("meat-consumption").value
+  );
+  var dairyConsumption = parseFloat(
+    document.getElementById("dairy-consumption").value
+  );
+  var wasteEmissions = parseFloat(
+    document.getElementById("waste-emissions").value
+  );
 
   // PBerrechnung des CO2-Fußabdrucks
-  var electricityCarbonFootprint = electricityUsage * electricityCarbonIntensity;
+  var electricityCarbonFootprint =
+    electricityUsage * electricityCarbonIntensity;
   var carCarbonFootprint = (carMileage / carEfficiency) * carFuelEmissions;
   var meatCarbonFootprint = meatEmissions * meatConsumption;
   var dairyCarbonFootprint = dairyEmissions * dairyConsumption;
@@ -38,7 +57,7 @@ function displayResult() {
     "Reduziere den Wasserverbrauch, indem du Wasserhähne abdrehst und Wasserressourcen schützt.",
     "Fördere erneuerbare Energien, indem du auf Solar- oder Windenergie umsteigst.",
     "Unterstütze lokale Landwirtschaft und kaufe saisonale Produkte, um Transportemissionen zu reduzieren.",
-    "Beteilige dich an Umweltschutzinitiativen und teile dein Wissen über nachhaltiges Handeln mit anderen."
+    "Beteilige dich an Umweltschutzinitiativen und teile dein Wissen über nachhaltiges Handeln mit anderen.",
   ];
 
   // NImm 3 zufällige Vorschläge aus der Liste
