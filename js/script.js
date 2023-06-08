@@ -29,12 +29,11 @@ function calculateCarbonFootprint() {
   );
 
   // PBerrechnung des CO2-Fußabdrucks
-  var electricityCarbonFootprint =
-    electricityUsage * electricityCarbonIntensity;
+  var electricityCarbonFootprint = electricityUsage * electricityCarbonIntensity;
   var carCarbonFootprint = (carMileage / carEfficiency) * carFuelEmissions;
   var meatCarbonFootprint = meatEmissions * meatConsumption;
   var dairyCarbonFootprint = dairyEmissions * dairyConsumption;
-  var totalCarbonFootprint = electricityCarbonFootprint + carCarbonFootprint + meatCarbonFootprint + dairyCarbonFootprint + wasteEmissions;
+  var totalCarbonFootprint = (electricityCarbonFootprint + carCarbonFootprint + meatCarbonFootprint + dairyCarbonFootprint + wasteEmissions)/8000000000;
 
   // Speichern des CO2-Fußabdrucks in localStorage
   localStorage.setItem("carbonFootprint", totalCarbonFootprint);
